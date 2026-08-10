@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sudoku Together</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="app">
+
+        <!-- HOME SCREEN -->
+        <section id="home-screen" class="screen active">
+
+            <div class="logo">
+                <div class="logo-grid">
+                    <span>5</span>
+                    <span>3</span>
+                    <span></span>
+                    <span>6</span>
+                    <span></span>
+                    <span></span>
+                    <span>9</span>
+                    <span></span>
+                    <span>8</span>
+                </div>
+            </div>
+
+            <h1>Sudoku Together</h1>
+
+            <p class="tagline">
+                Solve the same puzzle with someone else.
+            </p>
+
+            <div class="home-buttons">
+
+                <button id="new-game-btn" class="primary-btn">
+                    New Game
+                </button>
+
+                <button id="join-game-btn" class="secondary-btn">
+                    Join Game
+                </button>
+
+            </div>
+
+            <p class="version">v0.2</p>
+
+        </section>
+
+
+        <!-- GAME SCREEN -->
+        <section id="game-screen" class="screen">
+
+            <header class="game-header">
+
+                <button id="back-btn" class="icon-btn" aria-label="Back">
+                    ←
+                </button>
+
+                <div>
+                    <h2>Sudoku Together</h2>
+                    <p id="game-status">Local Game</p>
+                </div>
+
+                <button id="new-puzzle-btn" class="small-btn">
+                    New
+                </button>
+
+            </header>
+
+
+            <!-- PLAYER STATUS -->
+            <div class="players">
+
+                <div class="player">
+                    <span class="player-dot"></span>
+                    <span>You</span>
+                </div>
+
+                <div class="connection-status">
+                    ● Waiting for player
+                </div>
+
+            </div>
+
+
+            <!-- SUDOKU BOARD -->
+            <div id="sudoku-board" class="sudoku-board">
+                <!-- JavaScript creates the 81 cells -->
+            </div>
+
+
+            <!-- NUMBER PAD -->
+            <div id="number-pad" class="number-pad">
+
+                <button data-number="1">1</button>
+                <button data-number="2">2</button>
+                <button data-number="3">3</button>
+
+                <button data-number="4">4</button>
+                <button data-number="5">5</button>
+                <button data-number="6">6</button>
+
+                <button data-number="7">7</button>
+                <button data-number="8">8</button>
+                <button data-number="9">9</button>
+
+                <button data-number="0" class="erase-btn">
+                    Erase
+                </button>
+
+            </div>
+
+
+            <div id="game-message" class="game-message"></div>
+
+        </section>
+
+    </main>
+
+    <script src="app.js"></script>
+
+</body>
+</html>
