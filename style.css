@@ -1,0 +1,457 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f1ea;
+    color: #202020;
+    min-height: 100vh;
+}
+
+
+/* =========================
+   APP
+========================= */
+
+.app {
+    width: 100%;
+    max-width: 600px;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+
+/* =========================
+   SCREENS
+========================= */
+
+.screen {
+    display: none;
+    min-height: calc(100vh - 40px);
+}
+
+.screen.active {
+    display: flex;
+}
+
+
+/* =========================
+   HOME SCREEN
+========================= */
+
+#home-screen {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.logo {
+    margin-bottom: 25px;
+}
+
+.logo-grid {
+    width: 120px;
+    height: 120px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    border: 4px solid #202020;
+    background: white;
+}
+
+.logo-grid span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 22px;
+    font-weight: bold;
+
+    border-right: 1px solid #999;
+    border-bottom: 1px solid #999;
+}
+
+.logo-grid span:nth-child(3n) {
+    border-right: none;
+}
+
+.logo-grid span:nth-child(n+7) {
+    border-bottom: none;
+}
+
+h1 {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.tagline {
+    max-width: 320px;
+    line-height: 1.5;
+    color: #666;
+    margin-bottom: 35px;
+}
+
+.home-buttons {
+    width: 100%;
+    max-width: 320px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+}
+
+.primary-btn,
+.secondary-btn {
+    width: 100%;
+    padding: 16px;
+
+    border-radius: 12px;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    transition: transform 0.15s ease,
+                opacity 0.15s ease;
+}
+
+.primary-btn {
+    background: #202020;
+    color: white;
+}
+
+.secondary-btn {
+    background: white;
+    color: #202020;
+    border: 2px solid #202020;
+}
+
+.primary-btn:hover,
+.secondary-btn:hover {
+    transform: translateY(-2px);
+}
+
+.primary-btn:active,
+.secondary-btn:active {
+    transform: translateY(0);
+}
+
+.version {
+    margin-top: 35px;
+    font-size: 13px;
+    color: #999;
+}
+
+
+/* =========================
+   GAME SCREEN
+========================= */
+
+#game-screen {
+    flex-direction: column;
+}
+
+
+/* =========================
+   GAME HEADER
+========================= */
+
+.game-header {
+    display: grid;
+    grid-template-columns: 45px 1fr auto;
+    align-items: center;
+
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.game-header h2 {
+    font-size: 20px;
+}
+
+.game-header p {
+    font-size: 13px;
+    color: #777;
+    margin-top: 3px;
+}
+
+.icon-btn {
+    width: 42px;
+    height: 42px;
+
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+
+    font-size: 24px;
+}
+
+.small-btn {
+    padding: 9px 14px;
+
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+
+    font-weight: bold;
+}
+
+
+/* =========================
+   PLAYERS
+========================= */
+
+.players {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: white;
+
+    border-radius: 10px;
+
+    padding: 10px 12px;
+
+    margin-bottom: 15px;
+
+    font-size: 13px;
+}
+
+.player {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.player-dot {
+    width: 9px;
+    height: 9px;
+
+    background: #45a049;
+
+    border-radius: 50%;
+}
+
+.connection-status {
+    color: #888;
+}
+
+
+/* =========================
+   SUDOKU BOARD
+========================= */
+
+.sudoku-board {
+    width: 100%;
+    max-width: 540px;
+
+    aspect-ratio: 1 / 1;
+
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+
+    background: #202020;
+
+    border: 3px solid #202020;
+}
+
+
+/* Individual cells */
+
+.sudoku-cell {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: white;
+
+    border-right: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
+
+    font-size: clamp(18px, 5vw, 30px);
+
+    user-select: none;
+}
+
+
+/* Remove outside borders */
+
+.sudoku-cell:nth-child(9n) {
+    border-right: none;
+}
+
+.sudoku-cell:nth-child(n+73) {
+    border-bottom: none;
+}
+
+
+/* 3x3 block borders */
+
+.sudoku-cell:nth-child(3n) {
+    border-right: 3px solid #202020;
+}
+
+.sudoku-cell:nth-child(9n) {
+    border-right: none;
+}
+
+.sudoku-cell:nth-child(n+19):nth-child(-n+27),
+.sudoku-cell:nth-child(n+46):nth-child(-n+54) {
+    border-bottom: 3px solid #202020;
+}
+
+
+/* Selected cell */
+
+.sudoku-cell.selected {
+    background: #e9e5d9;
+}
+
+
+/* Given numbers */
+
+.sudoku-cell.given {
+    font-weight: bold;
+    background: #f0eee8;
+}
+
+
+/* Player-entered numbers */
+
+.sudoku-cell.user-number {
+    font-weight: normal;
+}
+
+
+/* Conflict */
+
+.sudoku-cell.error {
+    background: #f3d4d4;
+}
+
+
+/* =========================
+   NUMBER PAD
+========================= */
+
+.number-pad {
+    width: 100%;
+    max-width: 540px;
+
+    margin: 18px auto 0;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 8px;
+}
+
+.number-pad button {
+    min-height: 55px;
+
+    background: white;
+
+    border: 1px solid #ddd;
+    border-radius: 10px;
+
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.number-pad button:hover {
+    background: #eee;
+}
+
+.number-pad button:active {
+    transform: scale(0.97);
+}
+
+.number-pad .erase-btn {
+    grid-column: 1 / -1;
+
+    min-height: 45px;
+
+    font-size: 15px;
+
+    color: #777;
+}
+
+
+/* =========================
+   GAME MESSAGE
+========================= */
+
+.game-message {
+    text-align: center;
+
+    min-height: 25px;
+
+    margin-top: 12px;
+
+    font-size: 14px;
+
+    color: #666;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 450px) {
+
+    .app {
+        padding: 12px;
+    }
+
+    .screen {
+        min-height: calc(100vh - 24px);
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    .sudoku-cell {
+        font-size: 19px;
+    }
+
+    .number-pad {
+        gap: 6px;
+    }
+
+    .number-pad button {
+        min-height: 50px;
+    }
+
+}
+
+
+/* =========================
+   ACCESSIBILITY
+========================= */
+
+button:focus-visible,
+.sudoku-cell:focus-visible {
+    outline: 3px solid #555;
+    outline-offset: 2px;
+}
